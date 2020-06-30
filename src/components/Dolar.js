@@ -135,8 +135,8 @@ class Dolar extends Component{
                                     
                                     <div className="resultados"> 
                                         <h2>Valor promedio : <strong>{this.calcularPromedio()} USD</strong></h2>
-                                        <h2>Valor mínimo : <strong>{this.calcularMaximo()} USD</strong></h2>
-                                        <h2>Valor máximo : <strong>{this.calcularMinimo()} USD</strong></h2>
+                                        <h2>Valor mínimo : <strong>{this.calcularMinimo()} USD</strong></h2>
+                                        <h2>Valor máximo : <strong>{this.calcularMaximo()} USD</strong></h2>
                                     </div>
 
                                 </div>
