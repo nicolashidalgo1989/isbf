@@ -1,8 +1,9 @@
-import React, {Component} from 'react'; 
-import ApexCharts from 'apexcharts'
+import React, {Component} from 'react';    
+import BarChart from "./BarChart";
 
 class Dolar extends Component{ 
 
+    chartRef = React.createRef();
     initRef = React.createRef();
     endRef = React.createRef();
 
@@ -13,7 +14,7 @@ class Dolar extends Component{
         valores : [],
         status: null
 
-    } 
+    }   
 
     calcularMaximo = () => { 
 
@@ -44,6 +45,18 @@ class Dolar extends Component{
         return prom;
     } 
 
+    obtenerValores = () => {
+        var valors = [];
+        var valors = this.state.valores.map( (dato) => { return parseInt(dato.Valor); }); 
+        return valors;
+    }
+
+    obtenerFechas = () => {
+        var fechas= [];
+        var fechas = this.state.valores.map( (dato) => { return parseInt(dato.Fecha); });
+        return fechas;
+    }
+
     getValores = (event) => {
 
         event.preventDefault(); 
@@ -60,30 +73,16 @@ class Dolar extends Component{
             this.setState({
                 valores: json.Dolares,
                 status: 'success'
-            });
+            }); 
 
         });
 
 
     } 
  
-    render(){  
+    render(){   
+            
 
-        // var options = {
-        //     chart: {
-        //       type: 'line'
-        //     },
-        //     series: [{
-        //       name: 'Valor',
-        //       data: [30,40,35,50,49,60,70,91,125]
-        //     }],
-        //     xaxis: {
-        //       categories: ['Fecha']
-        //     }
-        //   }
-          
-        //   var chart = new ApexCharts(document.querySelector("#chart"), options);
-           
         return(
 
             <React.Fragment> 
@@ -121,15 +120,13 @@ class Dolar extends Component{
                         <div className="col-sm-6">
                              
                             {this.state.status === 'success' &&
-                                <div>
-
-                                {/* {chart.render()} */}
-                                
-                                <div className="resultados animate__fadeIn"> 
-                                    <h2>Valor promedio : <strong>{this.calcularPromedio()} USD</strong></h2>
-                                    <h2>Valor mínimo : <strong>{this.calcularMaximo()} USD</strong></h2>
-                                    <h2>Valor máximo : <strong>{this.calcularMinimo()} USD</strong></h2>
-                                </div>
+                                <div> 
+                                    
+                                    <div className="resultados animate__fadeIn"> 
+                                        <h2>Valor promedio : <strong>{this.calcularPromedio()} USD</strong></h2>
+                                        <h2>Valor mínimo : <strong>{this.calcularMaximo()} USD</strong></h2>
+                                        <h2>Valor máximo : <strong>{this.calcularMinimo()} USD</strong></h2>
+                                    </div>
 
                                 </div>
             
@@ -137,6 +134,17 @@ class Dolar extends Component{
  
                         </div>
                     
+                    </div>
+
+                    <div className="row">
+
+                        {this.state.status === 'success' &&
+
+                            <BarChart
+                            data={this.obtenerValores()}
+                            labels={this.obtenerFechas()} />
+                        }
+
                     </div>
 
                 </div>
