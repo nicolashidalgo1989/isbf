@@ -1,14 +1,19 @@
 import React, {Component} from 'react';    
 import BarChart from "./BarChart";
+import Global from '../Global';
 
 class Dolar extends Component{ 
 
+    //Constantes globales
+    api = Global.api;
+    apiKey = Global.apiKey;
+
+    //Inputs References
     chartRef = React.createRef();
     initRef = React.createRef();
     endRef = React.createRef();
 
-    apiKey = '9c84db4d447c80c74961a72245371245cb7ac15f';
-
+    //Estado Inicial
     state = {
 
         valores : [],
@@ -16,55 +21,61 @@ class Dolar extends Component{
 
     }   
 
+    //Calcula el máximo valor del dolar desde la api de acuerdo a los rangos de fechas seleccionados por el usuario
     calcularMaximo = () => { 
 
-        var max = Math.max.apply(Math, this.state.valores.map( (dato) => { return parseInt(dato.Valor); }));
+        let max = Math.max.apply(Math, this.state.valores.map( (dato) => { return parseInt(dato.Valor); }));
 
         return max;
 
     }
 
+    //Calcula el mínimo valor del dolar desde la api de acuerdo a los rangos de fechas seleccionados por el usuario
     calcularMinimo = () => { 
 
-        var min = Math.min.apply(Math, this.state.valores.map( (dato) => { return parseInt(dato.Valor); }));
+        let min = Math.min.apply(Math, this.state.valores.map( (dato) => { return parseInt(dato.Valor); }));
 
         return min;
 
     } 
 
+    //Calcula el promedio de los valores del dolar desde la api de acuerdo a los rangos de fechas seleccionados por el usuario
     calcularPromedio = () => {
         
-        var total = 0;
+        let total = 0;
 
         this.state.valores.forEach( (dato) => {
             total += parseInt(dato.Valor);
         });
 
-        var prom = parseInt(total / this.state.valores.length);
+        let prom = parseInt(total / this.state.valores.length);
 
         return prom;
     } 
 
+    //Valores del dolar obtenidos desde la api de acuerdo a los rangos de fechas seleccionados por el usuario
     obtenerValores = () => {
-        var valors = [];
-        var valors = this.state.valores.map( (dato) => { return parseInt(dato.Valor); }); 
+        let valors = [];
+        valors = this.state.valores.map( (dato) => { return parseInt(dato.Valor); }); 
         return valors;
     }
-
+    
+    //Fechas obtenidas desde la api seleccionadas por el usuario
     obtenerFechas = () => {
-        var fechas= [];
-        var fechas = this.state.valores.map( (dato) => { return parseInt(dato.Fecha); });
+        let fechas= [];
+        fechas = this.state.valores.map( (dato) => { return parseInt(dato.Fecha); });
         return fechas;
     }
 
+    //Consulta a la api con fechas variables
     getValores = (event) => {
 
         event.preventDefault(); 
 
-        var i = this.initRef.current.value.split('-');
-        var e = this.endRef.current.value.split('-');
+        let i = this.initRef.current.value.split('-');
+        let e = this.endRef.current.value.split('-');
         
-        var url = `https://api.sbif.cl/api-sbifv3/recursos_api/dolar/periodo/${i[0]}/${i[1]}/dias_i/${i[2]}/${e[0]}/${e[1]}/dias_f/${e[2]}?apikey=${this.apiKey}&formato=json`;
+        let url = `${this.api}${i[0]}/${i[1]}/dias_i/${i[2]}/${e[0]}/${e[1]}/dias_f/${e[2]}?apikey=${this.apiKey}&formato=json`;
  
         fetch(url)
         .then(res => res.json())
@@ -122,7 +133,7 @@ class Dolar extends Component{
                             {this.state.status === 'success' &&
                                 <div> 
                                     
-                                    <div className="resultados animate__fadeIn"> 
+                                    <div className="resultados"> 
                                         <h2>Valor promedio : <strong>{this.calcularPromedio()} USD</strong></h2>
                                         <h2>Valor mínimo : <strong>{this.calcularMaximo()} USD</strong></h2>
                                         <h2>Valor máximo : <strong>{this.calcularMinimo()} USD</strong></h2>
