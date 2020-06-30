@@ -6,7 +6,7 @@
     "npm": "6.x"
   },
   "private": true,
-  "homepage": "http://nicolashidalgo1989.github.io/sbif",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

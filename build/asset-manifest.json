@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/sbif/static/css/main.e1f06d53.chunk.css",
-    "main.js": "/sbif/static/js/main.3ef3a27d.chunk.js",
-    "main.js.map": "/sbif/static/js/main.3ef3a27d.chunk.js.map",
-    "runtime-main.js": "/sbif/static/js/runtime-main.879e8654.js",
-    "runtime-main.js.map": "/sbif/static/js/runtime-main.879e8654.js.map",
-    "static/js/2.4930b93f.chunk.js": "/sbif/static/js/2.4930b93f.chunk.js",
-    "static/js/2.4930b93f.chunk.js.map": "/sbif/static/js/2.4930b93f.chunk.js.map",
-    "index.html": "/sbif/index.html",
-    "precache-manifest.242594e199c92c843dcd1baacaa3801b.js": "/sbif/precache-manifest.242594e199c92c843dcd1baacaa3801b.js",
-    "service-worker.js": "/sbif/service-worker.js",
-    "static/css/main.e1f06d53.chunk.css.map": "/sbif/static/css/main.e1f06d53.chunk.css.map",
-    "static/js/2.4930b93f.chunk.js.LICENSE.txt": "/sbif/static/js/2.4930b93f.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.e1f06d53.chunk.css",
+    "main.js": "./static/js/main.bdf4a2f1.chunk.js",
+    "main.js.map": "./static/js/main.bdf4a2f1.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.be7ff329.js",
+    "runtime-main.js.map": "./static/js/runtime-main.be7ff329.js.map",
+    "static/js/2.4930b93f.chunk.js": "./static/js/2.4930b93f.chunk.js",
+    "static/js/2.4930b93f.chunk.js.map": "./static/js/2.4930b93f.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.b653a11d319bde92173ada7d2657f9e5.js": "./precache-manifest.b653a11d319bde92173ada7d2657f9e5.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.e1f06d53.chunk.css.map": "./static/css/main.e1f06d53.chunk.css.map",
+    "static/js/2.4930b93f.chunk.js.LICENSE.txt": "./static/js/2.4930b93f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.879e8654.js",
+    "static/js/runtime-main.be7ff329.js",
     "static/js/2.4930b93f.chunk.js",
     "static/css/main.e1f06d53.chunk.css",
-    "static/js/main.3ef3a27d.chunk.js"
+    "static/js/main.bdf4a2f1.chunk.js"
   ]
 }
